@@ -1,6 +1,7 @@
 
 /*Espace Thor */
 
+
 /*2.2*/
 // Formulaire pizza
 const pizzaForm = document.getElementById("form-pizza");
@@ -20,7 +21,7 @@ margheritaLabel.appendChild(margheritaInput);
 
 pizza.appendChild(margheritaLabel);
 
-pizzaForm.appendChild(pizza)
+pizzaForm.appendChild(pizza);
 
 
 
@@ -33,7 +34,9 @@ pizzaForm.appendChild(pizza)
 
 
 
-
+/*SAUTER LIGNE Salope */
+document.getElementById("form-pizza").innerHTML += "<br>";
+document.getElementById("formlivraison").innerHTML += "<br>";
 
 /*Espace colin */
 
@@ -49,7 +52,7 @@ pizzaForm.appendChild(pizza)
 /*2.5*/
 
 // Recuperer le conteneur du formulaire
-const livraisonContainer = document.getElementById("form-livraison");
+const livraisonContainer = document.getElementById("formlivraison");
 
 // Creer un formulaire
 const livraisonForm = document.createElement("form");
@@ -66,8 +69,13 @@ nomLabel.appendChild(nomInput);
 
 
 // Ajouter les champs au formulaire
-form.appendChild(nomLabel);
+livraisonForm.appendChild(nomLabel);
 
 
 // Ajouter le formulaire au conteneur
 livraisonContainer.appendChild(livraisonForm);
+
+
+
+
+
