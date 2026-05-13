@@ -1,50 +1,312 @@
-
-/*Espace Thor */
-
-
 /*2.2*/
 // Formulaire pizza
-const pizzaForm = document.getElementById("form-pizza");
-
+const pizzaForm = document.getElementById("formpizza");
 const pizza = document.createElement("form");
 
-const margheritaLabel = document.createElement("label");
-margheritaLabel.textContent = "Margherita";
+
+// Margherita - quantité
+const margheritaDiv = document.createElement("div");
+margheritaDiv.setAttribute("id", "margherita")
+
 const margheritaInput = document.createElement("input");
 margheritaInput.setAttribute("type", "checkbox");
 margheritaInput.setAttribute("name", "margherita");
+
+const margheritaLabel = document.createElement("label");
+margheritaLabel.textContent = "Margherita Quantité :";
+
 const margheritaNumber = document.createElement("input");
 margheritaNumber.setAttribute("type", "number");
+margheritaNumber.setAttribute("min", "0");
 margheritaNumber.setAttribute("max", "50");
-margheritaLabel.appendChild(margheritaInput);
-margheritaLabel.appendChild(margheritaInput);
 
-pizza.appendChild(margheritaLabel);
+margheritaDiv.appendChild(margheritaInput);
+margheritaDiv.appendChild(margheritaLabel);
+margheritaDiv.appendChild(margheritaNumber);
+
+// Margherita - garniture
+const garnituresMargheritaDiv = document.createElement("div");
+
+const garnituresLabel = document.createElement("label");
+garnituresLabel.textContent = "Garnitures : ";
+
+const fromageLabel = document.createElement("label");
+fromageLabel.textContent = "Fromage";
+const fromageInput = document.createElement("input");
+fromageInput.setAttribute("type", "checkbox");
+fromageInput.setAttribute("name", "fromage");
+fromageLabel.appendChild(fromageInput)
+
+const champignonsLabel = document.createElement("label");
+champignonsLabel.textContent = "Champignons";
+const champignonsInput = document.createElement("input");
+champignonsInput.setAttribute("type", "checkbox");
+champignonsInput.setAttribute("name", "champignons");
+champignonsLabel.appendChild(champignonsInput)
+
+const oignonsLabel = document.createElement("label");
+oignonsLabel.textContent = "Oignons";
+const oignonsInput = document.createElement("input");
+oignonsInput.setAttribute("type", "checkbox");
+oignonsInput.setAttribute("name", "oignons");
+oignonsLabel.appendChild(oignonsInput)
+
+
+garnituresMargheritaDiv.appendChild(garnituresLabel);
+garnituresMargheritaDiv.appendChild(fromageLabel);
+garnituresMargheritaDiv.appendChild(champignonsLabel);
+garnituresMargheritaDiv.appendChild(oignonsLabel);
+
+
+// Pepperonni - quantité
+const pepperoniDiv = document.createElement("div");
+pepperoniDiv.setAttribute("id", "pepperoni")
+
+const pepperoniInput = document.createElement("input");
+pepperoniInput.setAttribute("type", "checkbox");
+pepperoniInput.setAttribute("name", "pepperoni");
+
+const pepperoniLabel = document.createElement("label");
+pepperoniLabel.textContent = "Pepperoni Quantité :";
+
+const pepperoniNumber = document.createElement("input");
+pepperoniNumber.setAttribute("type", "number");
+pepperoniNumber.setAttribute("min", "0");
+pepperoniNumber.setAttribute("max", "50");
+
+pepperoniDiv.appendChild(pepperoniInput);
+pepperoniDiv.appendChild(pepperoniLabel);
+pepperoniDiv.appendChild(pepperoniNumber);
+
+// Pepperoni - garniture
+const garnituresPepperoniDiv = document.createElement("div");
+
+const garnituresPepperonniLabel = document.createElement("label");
+garnituresPepperonniLabel.textContent = "Garnitures : ";
+
+const fromagePepperonniLabel = document.createElement("label");
+fromagePepperonniLabel.textContent = "Fromage";
+const fromagePepperonniInput = document.createElement("input");
+fromagePepperonniInput.setAttribute("type", "checkbox");
+fromagePepperonniInput.setAttribute("name", "fromage");
+fromagePepperonniLabel.appendChild(fromagePepperonniInput)
+
+const champignonsPepperonniLabel = document.createElement("label");
+champignonsPepperonniLabel.textContent = "Champignons";
+const champignonsPepperonniInput = document.createElement("input");
+champignonsPepperonniInput.setAttribute("type", "checkbox");
+champignonsPepperonniInput.setAttribute("name", "champignons");
+champignonsPepperonniLabel.appendChild(champignonsPepperonniInput)
+
+const oliveLabel = document.createElement("label");
+oliveLabel.textContent = "Oignons";
+const oliveInput = document.createElement("input");
+oliveInput.setAttribute("type", "checkbox");
+oliveInput.setAttribute("name", "olive");
+oliveLabel.appendChild(oignonsInput)
+
+
+garnituresPepperoniDiv.appendChild(garnituresPepperonniLabel);
+garnituresPepperoniDiv.appendChild(fromagePepperonniLabel);
+garnituresPepperoniDiv.appendChild(champignonsPepperonniLabel);
+garnituresPepperoniDiv.appendChild(oliveLabel);
+
+
+
+// Végétarienne - quantité
+const vegeDiv = document.createElement("div");
+vegeDiv.setAttribute("id", "vege")
+
+const vegeInput = document.createElement("input");
+vegeInput.setAttribute("type", "checkbox");
+vegeInput.setAttribute("name", "vege");
+
+const vegeLabel = document.createElement("label");
+vegeLabel.textContent = "Végétarienne Quantité :";
+
+const vegeNumber = document.createElement("input");
+vegeNumber.setAttribute("type", "number");
+vegeNumber.setAttribute("min", "0");
+vegeNumber.setAttribute("max", "50");
+
+vegeDiv.appendChild(vegeInput);
+vegeDiv.appendChild(vegeLabel);
+vegeDiv.appendChild(vegeNumber);
+
+// Végétarienne - garniture
+const garnituresVegeDiv = document.createElement("div");
+
+const garnituresVegeLabel = document.createElement("label");
+garnituresVegeLabel.textContent = "Garnitures : ";
+
+const oignonsVegeLabel = document.createElement("label");
+oignonsVegeLabel.textContent = "Oignons";
+const oignonsVegeInput = document.createElement("input");
+oignonsVegeInput.setAttribute("type", "checkbox");
+oignonsVegeInput.setAttribute("name", "oignons");
+oignonsVegeLabel.appendChild(oignonsVegeInput)
+
+const champignonsVegeLabel = document.createElement("label");
+champignonsVegeLabel.textContent = "Champignons";
+const champignonsVegeInput = document.createElement("input");
+champignonsVegeInput.setAttribute("type", "checkbox");
+champignonsVegeInput.setAttribute("name", "champignons");
+champignonsVegeLabel.appendChild(champignonsPepperonniInput)
+
+const oliveVegeLabel = document.createElement("label");
+oliveVegeLabel.textContent = "Oignons";
+const oliveVegeInput = document.createElement("input");
+oliveVegeInput.setAttribute("type", "checkbox");
+oliveVegeInput.setAttribute("name", "olive");
+oliveVegeLabel.appendChild(oignonsInput)
+
+
+garnituresVegeDiv.appendChild(garnituresVegeLabel);
+garnituresVegeDiv.appendChild(oignonsVegeLabel);
+garnituresVegeDiv.appendChild(champignonsVegeLabel);
+garnituresVegeDiv.appendChild(oliveVegeLabel);
+
+
+// Sicilicienne - quantité
+const siciliDiv = document.createElement("div");
+siciliDiv.setAttribute("id", "sicili")
+
+const siciliInput = document.createElement("input");
+siciliInput.setAttribute("type", "checkbox");
+siciliInput.setAttribute("name", "sicili");
+
+const siciliLabel = document.createElement("label");
+siciliLabel.textContent = "Sicilicienne Quantité :";
+
+const siciliNumber = document.createElement("input");
+siciliNumber.setAttribute("type", "number");
+siciliNumber.setAttribute("min", "0");
+siciliNumber.setAttribute("max", "50");
+
+siciliDiv.appendChild(siciliInput);
+siciliDiv.appendChild(siciliLabel);
+siciliDiv.appendChild(siciliNumber);
+
+// Sicilicienne - garniture
+const garnituresSiciliDiv = document.createElement("div");
+
+const garnituresSiciliLabel = document.createElement("label");
+garnituresSiciliLabel.textContent = "Garnitures : ";
+
+const fromageSiciliLabel = document.createElement("label");
+fromageSiciliLabel.textContent = "Fromage";
+const fromageSiciliInput = document.createElement("input");
+fromageSiciliInput.setAttribute("type", "checkbox");
+fromageSiciliInput.setAttribute("name", "fromage");
+fromageSiciliLabel.appendChild(fromageSiciliInput)
+
+const champignonsSiciliLabel = document.createElement("label");
+champignonsSiciliLabel.textContent = "Champignons";
+const champignonsSiciliInput = document.createElement("input");
+champignonsSiciliInput.setAttribute("type", "checkbox");
+champignonsSiciliInput.setAttribute("name", "champignons");
+champignonsSiciliLabel.appendChild(champignonsSiciliInput)
+
+const oignonsSiciliLabel = document.createElement("label");
+oignonsSiciliLabel.textContent = "Oignons";
+const oignonsSiciliInput = document.createElement("input");
+oignonsSiciliInput.setAttribute("type", "checkbox");
+oignonsSiciliInput.setAttribute("name", "oignons");
+oignonsSiciliLabel.appendChild(oignonsSiciliInput)
+
+
+garnituresSiciliDiv.appendChild(garnituresSiciliLabel);
+garnituresSiciliDiv.appendChild(fromageSiciliLabel);
+garnituresSiciliDiv.appendChild(champignonsSiciliLabel);
+garnituresSiciliDiv.appendChild(oignonsSiciliLabel);
+
+// Faire apparaitre les éléments dans le document
+
+pizza.appendChild(margheritaDiv);
+pizza.appendChild(garnituresMargheritaDiv);
+pizza.appendChild(pepperoniDiv);
+pizza.appendChild(garnituresPepperoniDiv);
+pizza.appendChild(vegeDiv);
+pizza.appendChild(garnituresVegeDiv);
+pizza.appendChild(siciliDiv);
+pizza.appendChild(garnituresSiciliDiv)
+
 
 pizzaForm.appendChild(pizza);
 
 
-
-
 /*2.3*/
+// Mode de paiement
+
+/*const modePaiementDiv = document.createElement ("div");
+modePaiementDivsetAttribut("id", "modePaiementDiv");
+
+const modePaiementLabel = document.createElement("label");
+modePaiementLabel.textContent = "Mode de paiement : ";
+*/
 
 
 
 
 
-
-
-/*SAUTER LIGNE Salope */
-document.getElementById("form-pizza").innerHTML += "<br>";
+/* Sauter ligne */
+document.getElementById("formpizza").innerHTML += "<br>";
 document.getElementById("formlivraison").innerHTML += "<br>";
+document.getElementById("container").innerHTML += "<br>";
 
 /*Espace colin */
 
 /*2.4*/
 
+// Recuperer le conteneur du formulaire
+const clientContainer = document.getElementById("formclient");
+
+// Creer un formulaire
+const clientForm = document.createElement("client");
+
+// Creéer un champ de texte pour le nom
+const nomLabel = document.createElement("label");
+nomLabel.textContent = "Nom : ";
+const nomInput = document.createElement("input");
+nomInput.setAttribute("type", "text");
+nomInput.setAttribute("name", "name");
+nomInput.setAttribute("size", "15");
+nomLabel.appendChild(nomInput);
 
 
 
+const prenomLabel = document.createElement("label");
+prenomLabel.textContent = "Prénom : ";
+const prenomInput = document.createElement("input");
+prenomInput.setAttribute("type", "text");
+prenomInput.setAttribute("name", "name");
+prenomInput.setAttribute("size", "15");
+prenomLabel.appendChild(prenomInput);
+
+const telephoneLabel = document.createElement("label");
+telephoneLabel.textContent = "Téléphone : ";
+const telephoneInput = document.createElement("input");
+telephoneInput.setAttribute("type", "text");
+telephoneInput.setAttribute("name", "name");
+telephoneInput.setAttribute("size", "15");
+telephoneLabel.appendChild(telephoneInput);
+
+const adresseLabel = document.createElement("label");
+adresseLabel.textContent = "Adresse complète : ";
+const adresseInput = document.createElement("input");
+adresseInput.setAttribute("type", "text");
+adresseInput.setAttribute("name", "name");
+adresseInput.setAttribute("size", "15");
+adresseLabel.appendChild(adresseInput);
+
+// Ajouter les champs au formulaire
+clientForm.appendChild(nomLabel);
+clientForm.appendChild(prenomLabel);
+clientForm.appendChild(telephoneLabel);
+clientForm.appendChild(adresseLabel);
+
+// Ajouter le formulaire au conteneur
+clientContainer.appendChild(clientForm);
 
 
 
@@ -58,24 +320,58 @@ const livraisonContainer = document.getElementById("formlivraison");
 const livraisonForm = document.createElement("form");
 
 // Creéer un champ de texte pour le nom
-const nomLabel = document.createElement("label");
-nomLabel.textContent = "Nom : ";
-const nomInput = document.createElement("input");
-nomInput.setAttribute("type", "text");
-nomInput.setAttribute("name", "name");
-nomInput.setAttribute("size", "15");
-nomLabel.appendChild(nomInput);
+const nomprenomLabel = document.createElement("label");
+nomprenomLabel.textContent = "Nom et prénom : ";
+const nomprenomInput = document.createElement("input");
+nomprenomInput.setAttribute("type", "text");
+nomprenomInput.setAttribute("name", "name");
+nomprenomInput.setAttribute("size", "15");
+nomprenomLabel.appendChild(nomprenomInput);
+
+
+const telephonelivraisonLabel = document.createElement("label");
+telephonelivraisonLabel.textContent = "Téléphone :  ";
+const telephonelivraisonInput = document.createElement("input");
+telephonelivraisonInput.setAttribute("type", "text");
+telephonelivraisonInput.setAttribute("name", "name");
+telephonelivraisonInput.setAttribute("size", "15");
+telephonelivraisonLabel.appendChild(telephonelivraisonInput);
+
+const adresselivraisonLabel = document.createElement("label");
+adresselivraisonLabel.textContent = "Adresse de livraison : ";
+const adresselivraisonInput = document.createElement("input");
+adresselivraisonInput.setAttribute("type", "text");
+adresselivraisonInput.setAttribute("name", "name");
+adresselivraisonInput.setAttribute("size", "15");
+adresselivraisonLabel.appendChild(adresselivraisonInput);
 
 
 
 // Ajouter les champs au formulaire
-livraisonForm.appendChild(nomLabel);
-
+livraisonForm.appendChild(nomprenomLabel);
+livraisonForm.appendChild(telephonelivraisonLabel);
+livraisonForm.appendChild(adresselivraisonLabel);
 
 // Ajouter le formulaire au conteneur
 livraisonContainer.appendChild(livraisonForm);
 
 
 
+/*2.6*/
+
+const container = document.getElementById('container');
+
+const btn = document.createElement('button');
+btn.textContent = 'Commander';
+btn.id = 'myBtn';
+btn.className = 'my-button';
+
+btn.addEventListener('click', function () {
+  const msg = document.createElement('p');
+  msg.textContent = 'Button clicked!';
+  container.appendChild(msg);
+});
+
+container.appendChild(btn);
 
 
