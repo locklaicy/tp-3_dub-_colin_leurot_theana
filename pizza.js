@@ -6,7 +6,7 @@ const pizzaForm = document.getElementById("formpizza");
 const pizza = document.createElement("form");
 
 // Margherita - quantité
-/*const margheritaDiv = document.createElement("div");
+const margheritaDiv = document.createElement("div");
 margheritaDiv.setAttribute("id", "margherita");
 
 const margheritaInput = document.createElement("input");
@@ -147,14 +147,14 @@ champignonsVegeLabel.textContent = "Champignons";
 const champignonsVegeInput = document.createElement("input");
 champignonsVegeInput.setAttribute("type", "checkbox");
 champignonsVegeInput.setAttribute("name", "champignons");
-champignonsVegeLabel.appendChild(champignonsPepperonniInput);
+champignonsVegeLabel.appendChild(champignonsVegeInput);
 
 const oliveVegeLabel = document.createElement("label");
 oliveVegeLabel.textContent = "Oignons";
 const oliveVegeInput = document.createElement("input");
 oliveVegeInput.setAttribute("type", "checkbox");
 oliveVegeInput.setAttribute("name", "olive");
-oliveVegeLabel.appendChild(oignonsInput);
+oliveVegeLabel.appendChild(oliveVegeInput);
 
 garnituresVegeDiv.appendChild(garnituresVegeLabel);
 garnituresVegeDiv.appendChild(oignonsVegeLabel);
@@ -225,7 +225,7 @@ pizza.appendChild(siciliDiv);
 pizza.appendChild(garnituresSiciliDiv);
 
 pizzaForm.appendChild(pizza);
-*/
+
 /*2.3*/
 // Mode de paiement
 
@@ -278,9 +278,9 @@ modePaiementDiv.appendChild(especeDiv);
 modePaiementForm.appendChild(modePaiementDiv);
 
 /* Sauter ligne */
-document.getElementById("formpizza").innerHTML += "<br>";
+/*document.getElementById("formpizza").innerHTML += "<br>";
 document.getElementById("formlivraison").innerHTML += "<br>";
-document.getElementById("container").innerHTML += "<br>";
+document.getElementById("container").innerHTML += "<br>";*/
 
 /*Espace colin */
 
@@ -386,10 +386,12 @@ bouton.id = "bouton";
 
 boutonContainer.appendChild(bouton);
 
-// Fonctions
+
+
+// ==================== Fonctions ====================
 
 // Génerer la facture
-/*function genererFacture() {
+function genererFacture() {
   const facture = [];
   const prixPizza = 12;
   const prixGarniture = 2;
@@ -399,7 +401,7 @@ boutonContainer.appendChild(bouton);
   if (margheritaInput.checked && margheritaNumber.value > 0) {
     facture.push ({
       item: "Pizza Margherita",
-      prix: prixUnitairePizza,
+      prix: prixPizza,
       quantite: parseInt(margheritaNumber.value),
     });
   }
@@ -411,16 +413,80 @@ boutonContainer.appendChild(bouton);
   if (pepperoniInput.checked && pepperoniNumber.value > 0) {
     facture.push ({
       item: "Pizza Pepperoni",
-      prix: prixUnitairePizza,
+      prix: prixPizza,
       quantite: parseInt(pepperoniNumber.value),
     });
   }
 
-  if (fromagePepperoniInput.checked) { facture.push ({item: "Fromage Pepperoni", prix: prixGarniture,});}
-  if (champignonsPepperoniInput.checked) { facture.push({item: "Champignong Pepperoni", prix: prixGarniture,})};
+  if (fromagePepperonniInput.checked) { facture.push ({item: "Fromage Pepperoni", prix: prixGarniture,});}
+  if (champignonsPepperonniInput.checked) { facture.push({item: "Champignong Pepperoni", prix: prixGarniture,})};
   if (olivePepperoniInput.checked) { facture.push({item: "Oignons Pepperoni", prix: prixGarniture,});}
+
+  if (vegeInput.checked && vegeNumber.value > 0) {
+    facture.push ({
+      item: "Pizza Végétarienne",
+      prix: prixPizza,
+      quantite: parseInt(vegeNumber.value),
+    });
+  }
+
+  if (oignonsVegeInput.checked) { facture.push ({item: "Fromage Végétarienne", prix: prixGarniture,});}
+  if (champignonsVegeInput.checked) { facture.push({item: "Champignong Végétarienne", prix: prixGarniture,})};
+  if (oliveVegeInput.checked) { facture.push({item: "Oignons Végétarienne", prix: prixGarniture,});}
+
+  if (siciliInput.checked && siciliNumber.value > 0) {
+    facture.push ({
+      item: "Pizza Sicilienne",
+      prix: prixPizza,
+      quantite: parseInt(siciliNumber.value),
+    });
+  }
+
+  if (fromageSiciliInput.checked) { facture.push ({item: "Fromage Sicilienne", prix: prixGarniture,});}
+  if (champignonsSiciliInput.checked) { facture.push({item: "Champignong Sicilienne", prix: prixGarniture,})};
+  if (oignonsSiciliInput.checked) { facture.push({item: "Oignons Sicilienne", prix: prixGarniture,});}
+
+
+  // Mode de paiment
+
+  if (carteEnLigneInput.checked && cartePorteInput.checked && especeInput.checked) {
+    alert("Veuillez choisir un mode de paiment.");
+    return;
+  }
+
+  // Formulaire client
+
+  if (nomInput.value.trim() === "" && prenomInput.value.trim() === "" && telephoneInput.value.trim() === "" && adresseInput.value.trim() === "") {
+    alert("Veuillez remplir les informations client.");
+    return;
+  }
+
+  // Formulaire livraison
+
+  if (nomprenomInput.value.trim() === "" && telephonelivraisonInput.value.trim() === "" && adresselivraisonInput.value.trim() === "") {
+    alert("Veuillez remplir les informations de livraison.");
+    return;
+  }
+  
+  // Parcourir et afficher le tableau
+  let totalGlobal = 0;
+  let texteFacture = "FACTURE";
+
+  for (let i = 0; i < facture.length; i ++) {
+    let ligneActuelle = facture[i];
+
+    let quantiteLigne = ligneActuelle.quantite ? ligneActuelle.quantite : 1;
+
+    let totalLigne = ligneActuelle.prix * quantiteLigne;
+    totalGlobal += totalLigne;
+
+    texteFacture += `Item : ${ligneActuelle.item} | Prix : ${ligneActuelle.prix} | Quantité : ${quantiteLigne} | Total : ${totalLigne}`
+  }
+
+    alert(texteFacture)
 }
+
 // Appel de la fonction pour génerer la facture avec le bouton
 bouton.addEventListener("click", function () {
   genererFacture();
-})*/
+})

@@ -9,6 +9,7 @@ body {
     align-items: center;
     justify-content: center;
     font-family: "M PLUS Rounded 1c";
+    gap: 1.5em;
 }
  
 .title {
